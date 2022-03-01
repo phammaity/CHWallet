@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		24D1A02427CDBE4100085FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A02327CDBE4100085FA8 /* AppDelegate.swift */; };
 		24D1A02627CDBE4100085FA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A02527CDBE4100085FA8 /* SceneDelegate.swift */; };
-		24D1A02827CDBE4100085FA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A02727CDBE4100085FA8 /* ViewController.swift */; };
+		24D1A02827CDBE4100085FA8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A02727CDBE4100085FA8 /* HomeViewController.swift */; };
 		24D1A02B27CDBE4200085FA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D1A02927CDBE4200085FA8 /* Main.storyboard */; };
 		24D1A02E27CDBE4200085FA8 /* CHWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A02C27CDBE4200085FA8 /* CHWallet.xcdatamodeld */; };
 		24D1A03027CDBE4300085FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24D1A02F27CDBE4300085FA8 /* Assets.xcassets */; };
@@ -22,6 +22,13 @@
 		24D1A05F27CDC74000085FA8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A05E27CDC74000085FA8 /* Currency.swift */; };
 		24D1A06127CDC7A600085FA8 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A06027CDC7A600085FA8 /* Coin.swift */; };
 		24D1A06327CDCC2700085FA8 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A06227CDCC2700085FA8 /* BaseResponse.swift */; };
+		24D1A06527CDE54700085FA8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A06427CDE54700085FA8 /* HomeViewModel.swift */; };
+		24D1A06727CDE84C00085FA8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A06627CDE84C00085FA8 /* BaseViewController.swift */; };
+		24D1A06C27CDE8F500085FA8 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A06A27CDE8F500085FA8 /* CoinTableViewCell.swift */; };
+		24D1A06D27CDE8F500085FA8 /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D1A06B27CDE8F500085FA8 /* CoinTableViewCell.xib */; };
+		24D1A06F27CDF99B00085FA8 /* CoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A06E27CDF99B00085FA8 /* CoinViewModel.swift */; };
+		24D1A07127CE06AC00085FA8 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A07027CE06AC00085FA8 /* UITableViewExtension.swift */; };
+		24D1A07427CE082C00085FA8 /* ObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1A07327CE082C00085FA8 /* ObjectExtension.swift */; };
 		2C9891EE1B48910594469CEE /* Pods_CHWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4540640A580D6767EEF746 /* Pods_CHWallet.framework */; };
 		87752D40DD9A91497992B467 /* Pods_CHWallet_CHWalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EAD8CD7360D710C1DF663 /* Pods_CHWallet_CHWalletUITests.framework */; };
 		F237949C019B6EAB77F8FBF2 /* Pods_CHWalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05213486877C01A0F6DD75A1 /* Pods_CHWalletTests.framework */; };
@@ -49,7 +56,7 @@
 		24D1A02027CDBE4100085FA8 /* CHWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D1A02327CDBE4100085FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24D1A02527CDBE4100085FA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		24D1A02727CDBE4100085FA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		24D1A02727CDBE4100085FA8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		24D1A02A27CDBE4200085FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24D1A02D27CDBE4200085FA8 /* CHWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CHWallet.xcdatamodel; sourceTree = "<group>"; };
 		24D1A02F27CDBE4300085FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +72,13 @@
 		24D1A05E27CDC74000085FA8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		24D1A06027CDC7A600085FA8 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		24D1A06227CDCC2700085FA8 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		24D1A06427CDE54700085FA8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		24D1A06627CDE84C00085FA8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		24D1A06A27CDE8F500085FA8 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
+		24D1A06B27CDE8F500085FA8 /* CoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinTableViewCell.xib; sourceTree = "<group>"; };
+		24D1A06E27CDF99B00085FA8 /* CoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewModel.swift; sourceTree = "<group>"; };
+		24D1A07027CE06AC00085FA8 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		24D1A07327CE082C00085FA8 /* ObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectExtension.swift; sourceTree = "<group>"; };
 		46F1270BDF95B7324A110C66 /* Pods-CHWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHWallet.debug.xcconfig"; path = "Target Support Files/Pods-CHWallet/Pods-CHWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		5B3D581389BDC3B194AC9919 /* Pods-CHWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHWalletTests.debug.xcconfig"; path = "Target Support Files/Pods-CHWalletTests/Pods-CHWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A45F0C94CA1A65704669F951 /* Pods-CHWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHWallet.release.xcconfig"; path = "Target Support Files/Pods-CHWallet/Pods-CHWallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,13 +142,13 @@
 		24D1A02227CDBE4100085FA8 /* CHWallet */ = {
 			isa = PBXGroup;
 			children = (
+				24D1A07227CE06C300085FA8 /* Utils */,
 				24D1A05D27CDC6B300085FA8 /* Models */,
 				24D1A05C27CDC6AA00085FA8 /* Views */,
 				24D1A05B27CDC69A00085FA8 /* ViewModels */,
 				24D1A05627CDC61D00085FA8 /* Network */,
 				24D1A02327CDBE4100085FA8 /* AppDelegate.swift */,
 				24D1A02527CDBE4100085FA8 /* SceneDelegate.swift */,
-				24D1A02727CDBE4100085FA8 /* ViewController.swift */,
 				24D1A02927CDBE4200085FA8 /* Main.storyboard */,
 				24D1A02F27CDBE4300085FA8 /* Assets.xcassets */,
 				24D1A03127CDBE4300085FA8 /* LaunchScreen.storyboard */,
@@ -173,6 +187,8 @@
 		24D1A05B27CDC69A00085FA8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				24D1A06427CDE54700085FA8 /* HomeViewModel.swift */,
+				24D1A06E27CDF99B00085FA8 /* CoinViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -180,6 +196,9 @@
 		24D1A05C27CDC6AA00085FA8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				24D1A06627CDE84C00085FA8 /* BaseViewController.swift */,
+				24D1A06927CDE8BA00085FA8 /* CoinCell */,
+				24D1A06827CDE8B300085FA8 /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +211,32 @@
 				24D1A06227CDCC2700085FA8 /* BaseResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		24D1A06827CDE8B300085FA8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				24D1A02727CDBE4100085FA8 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		24D1A06927CDE8BA00085FA8 /* CoinCell */ = {
+			isa = PBXGroup;
+			children = (
+				24D1A06A27CDE8F500085FA8 /* CoinTableViewCell.swift */,
+				24D1A06B27CDE8F500085FA8 /* CoinTableViewCell.xib */,
+			);
+			path = CoinCell;
+			sourceTree = "<group>";
+		};
+		24D1A07227CE06C300085FA8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				24D1A07027CE06AC00085FA8 /* UITableViewExtension.swift */,
+				24D1A07327CE082C00085FA8 /* ObjectExtension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		CC6A615B5B9194492061D16C /* Pods */ = {
@@ -328,6 +373,7 @@
 			files = (
 				24D1A03327CDBE4300085FA8 /* LaunchScreen.storyboard in Resources */,
 				24D1A03027CDBE4300085FA8 /* Assets.xcassets in Resources */,
+				24D1A06D27CDE8F500085FA8 /* CoinTableViewCell.xib in Resources */,
 				24D1A02B27CDBE4200085FA8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,13 +504,19 @@
 			files = (
 				24D1A06327CDCC2700085FA8 /* BaseResponse.swift in Sources */,
 				24D1A05827CDC63300085FA8 /* NetworkService.swift in Sources */,
-				24D1A02827CDBE4100085FA8 /* ViewController.swift in Sources */,
+				24D1A06727CDE84C00085FA8 /* BaseViewController.swift in Sources */,
+				24D1A02827CDBE4100085FA8 /* HomeViewController.swift in Sources */,
+				24D1A06527CDE54700085FA8 /* HomeViewModel.swift in Sources */,
+				24D1A07427CE082C00085FA8 /* ObjectExtension.swift in Sources */,
 				24D1A02E27CDBE4200085FA8 /* CHWallet.xcdatamodeld in Sources */,
+				24D1A06C27CDE8F500085FA8 /* CoinTableViewCell.swift in Sources */,
 				24D1A05A27CDC64000085FA8 /* NetworkError.swift in Sources */,
 				24D1A02427CDBE4100085FA8 /* AppDelegate.swift in Sources */,
 				24D1A05F27CDC74000085FA8 /* Currency.swift in Sources */,
 				24D1A06127CDC7A600085FA8 /* Coin.swift in Sources */,
+				24D1A06F27CDF99B00085FA8 /* CoinViewModel.swift in Sources */,
 				24D1A02627CDBE4100085FA8 /* SceneDelegate.swift in Sources */,
+				24D1A07127CE06AC00085FA8 /* UITableViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

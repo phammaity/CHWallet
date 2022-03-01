@@ -7,6 +7,7 @@ target 'CHWallet' do
 
   # Pods for CHWallet
   pod 'Alamofire', '~> 5.5'
+  pod 'Kingfisher', '~> 7.0'
 
   target 'CHWalletTests' do
     inherit! :search_paths
