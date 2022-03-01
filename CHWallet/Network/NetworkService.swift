@@ -19,14 +19,15 @@ class NetworkService: NetworkServiceProtocol {
     private init() { }
 
     func fetchPrices(currency: Currency) -> AnyPublisher<DataResponse<BaseResponse<Coin>, NetworkError>, Never>{
-        return fetchData(urlString: urlString)
+        let params = ["counter_currency":currency.rawValue]
+        return fetchData(urlString: urlString, params: params)
     }
     
-    func fetchData<T: Decodable>(urlString: String) -> AnyPublisher<DataResponse<T, NetworkError>, Never> {
+    func fetchData<T: Decodable>(urlString: String, params: Dictionary<String, Any>) -> AnyPublisher<DataResponse<T, NetworkError>, Never> {
         //create request url
         let url = URL(string: urlString)!
         
-        return AF.request(url,method: .get, parameters:["counter_currency":"USD"], encoding: URLEncoding.queryString)
+        return AF.request(url,method: .get, parameters: params, encoding: URLEncoding.queryString)
             .validate()
             .publishDecodable(type: T.self)
             .map { response in
