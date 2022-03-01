@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    @IBOutlet weak var loadingStatusLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var viewModel: HomeProtocol?
     
@@ -17,23 +17,31 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         viewModel = HomeViewModel(delegate: self)
         
-        //register cell
+        //configure tableview
         tableView.registerCellFromNib(CoinTableViewCell.self)
-        
-        
-        // initializing the refreshControl
         tableView.refreshControl = UIRefreshControl()
-        // add target to UIRefreshControl
         tableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        
+        //configure searchbar
+        searchBar.placeholder = "Search by name"
+        
+        //configure observer
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
+            print("app active")
+            self.viewModel?.fetchData()
+        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel?.fetchData()
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
-    
     
     @objc func pullToRefresh() {
+        //end editting
+        searchBar.text = ""
+        searchBar.endEditing(true)
+        
+        //refresh
         viewModel?.fetchData()
     }
     
@@ -62,14 +70,20 @@ extension HomeViewController: UITableViewDataSource {
 
 //MARK: HomeDelegate
 extension HomeViewController: HomeDelegate {
+    func startLoading() {
+        loadingStatusLabel.text = "Loading ..."
+    }
+    
     func dataDidLoad() {
         self.tableView.refreshControl?.endRefreshing()
         self.tableView.reloadData()
+        self.loadingStatusLabel.text = "Updated"
     }
     
     func dataLoadError(error: String) {
         self.tableView.refreshControl?.endRefreshing()
         self.showErrorAlert(error: error)
+        self.loadingStatusLabel.text = "ERROR!!!"
     }
 }
 

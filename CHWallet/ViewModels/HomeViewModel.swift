@@ -6,8 +6,10 @@
 //
 
 import Combine
+import Foundation
 
 protocol HomeDelegate: AnyObject {
+    func startLoading()
     func dataDidLoad()
     func dataLoadError(error: String)
 }
@@ -23,30 +25,55 @@ class HomeViewModel: HomeProtocol {
     private var cancellableSet: Set<AnyCancellable> = []
     private var serviceManager: NetworkServiceProtocol
     private weak var delegate: HomeDelegate?
+    var searchKeyWord: String = ""
     var coinVMs: [CoinProtocol] = []
     var filteredVMs: [CoinProtocol] = []
+    
+    private var timer: Timer?
     
     init(serviceManager: NetworkServiceProtocol = NetworkService.shared, delegate: HomeDelegate){
         self.serviceManager = serviceManager
         self.delegate = delegate
+        
+        //create timer
+        self.timer = Timer.scheduledTimer(timeInterval: 30.0,
+                                     target: self,
+                                     selector: #selector(updatePrices),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    deinit {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc private func updatePrices() {
+        self.fetchData()
     }
     
     private func handleResponseData(data: [Coin]) {
         self.coinVMs = data.map{CoinViewModel(coin: $0)}
-        self.filteredVMs = self.coinVMs
+        if self.searchKeyWord.isEmpty {
+            self.filteredVMs = self.coinVMs
+        }else {
+            self.filteredVMs = self.coinVMs.filter{$0.nameString.contains(searchKeyWord)}
+        }
     }
     
 //MARK: HomeProtocol
     func search(keyword: String) {
-        if keyword.isEmpty {
+        self.searchKeyWord = keyword
+        if self.searchKeyWord.isEmpty {
             self.filteredVMs = self.coinVMs
         }else {
-            self.filteredVMs = self.coinVMs.filter{$0.nameString.contains(keyword)}
+            self.filteredVMs = self.coinVMs.filter{$0.nameString.contains(searchKeyWord)}
         }
         self.delegate?.dataDidLoad()
     }
     
     func fetchData() {
+        self.delegate?.startLoading()
         serviceManager.fetchPrices(currency: Currency.usd)
             .sink {[weak self] (response) in
                 if let _ = response.error {
