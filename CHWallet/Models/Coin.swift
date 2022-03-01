@@ -23,6 +23,14 @@ struct Coin: Codable {
         case icon
         case name
     }
+    init() {
+        base = ""
+        counter = ""
+        buyPrice = 0
+        sellPrice = 0
+        icon = ""
+        name = ""
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
