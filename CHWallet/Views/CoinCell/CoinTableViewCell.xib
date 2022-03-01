@@ -50,7 +50,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhU-gy-Zgn">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kE-Mf-P98" userLabel="buyPrice">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kE-Mf-P98" userLabel="buyPrice" customClass="PriceUpdateLabel" customModule="CHWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="34.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemGreenColor"/>
@@ -65,7 +65,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7td-EP-GQA">
                                         <rect key="frame" x="0.0" y="24.5" width="54" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkI-jd-prh" userLabel="sellPrice">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkI-jd-prh" userLabel="sellPrice" customClass="PriceUpdateLabel" customModule="CHWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="34.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -92,10 +92,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="baseLabel" destination="TpI-Yg-2jf" id="MLY-KC-VRx"/>
-                <outlet property="buyPriceLabel" destination="6kE-Mf-P98" id="2Tl-Gz-8F7"/>
+                <outlet property="buyPriceLabel" destination="6kE-Mf-P98" id="8WN-6R-D3k"/>
                 <outlet property="iconImageView" destination="Jbp-yv-8P5" id="z83-2n-Dp2"/>
                 <outlet property="nameLabel" destination="AyA-u9-NXS" id="vMn-Ov-pdX"/>
-                <outlet property="sellPriceLabel" destination="qkI-jd-prh" id="hjv-fg-i5s"/>
+                <outlet property="sellPriceLabel" destination="qkI-jd-prh" id="6vA-K3-8z5"/>
             </connections>
             <point key="canvasLocation" x="269.56521739130437" y="148.99553571428569"/>
         </tableViewCell>

@@ -13,11 +13,15 @@ protocol CoinProtocol {
     var buyPriceString: String {get}
     var sellPriceString: String {get}
     var iconUrlString: String {get}
+    var oldSellPrice: String? {get set}
+    var oldBuyPrice: String? {get set}
 }
 
 class CoinViewModel: CoinProtocol {
     
     private var coin: Coin
+    var oldSellPrice: String?
+    var oldBuyPrice: String?
     
     init(coin: Coin) {
         self.coin = coin
@@ -32,14 +36,16 @@ class CoinViewModel: CoinProtocol {
     }
     
     var buyPriceString: String {
-        return String(coin.buyPrice.description)
+        return coin.buyPrice
     }
     
     var sellPriceString: String {
-        return String(coin.sellPrice.description)
+        return coin.sellPrice
     }
     
     var iconUrlString: String {
         return coin.icon
     }
+    
+    
 }

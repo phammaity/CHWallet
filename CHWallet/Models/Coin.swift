@@ -10,8 +10,8 @@ import Foundation
 struct Coin: Codable {
     var base: String
     var counter: String
-    var buyPrice: Decimal
-    var sellPrice: Decimal
+    var buyPrice: String
+    var sellPrice: String
     var icon: String
     var name: String
 
@@ -23,26 +23,13 @@ struct Coin: Codable {
         case icon
         case name
     }
+    
     init() {
         base = ""
         counter = ""
-        buyPrice = 0
-        sellPrice = 0
+        buyPrice = ""
+        sellPrice = ""
         icon = ""
         name = ""
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        base = try container.decode(String.self, forKey: .base)
-        counter = try container.decode(String.self, forKey: .counter)
-        icon = try container.decode(String.self, forKey: .icon)
-        name = try container.decode(String.self, forKey: .name)
-        
-        let buyPriceString = try container.decode(String.self, forKey: .buyPrice)
-        buyPrice = Decimal(string: buyPriceString) ?? 0
-        
-        let sellPriceString = try container.decode(String.self, forKey: .sellPrice)
-        sellPrice = Decimal(string: sellPriceString) ?? 0
     }
 }

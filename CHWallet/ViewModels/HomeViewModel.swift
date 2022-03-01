@@ -26,6 +26,7 @@ class HomeViewModel: HomeProtocol {
     private var serviceManager: NetworkServiceProtocol
     private weak var delegate: HomeDelegate?
     var searchKeyWord: String = ""
+    var oldCoinVMs: [String:CoinProtocol] = [:]
     var coinVMs: [CoinProtocol] = []
     var filteredVMs: [CoinProtocol] = []
     
@@ -53,7 +54,19 @@ class HomeViewModel: HomeProtocol {
     }
     
     private func handleResponseData(data: [Coin]) {
-        self.coinVMs = data.map{CoinViewModel(coin: $0)}
+        self.coinVMs = data.map({ coin in
+            let coinVM = CoinViewModel(coin: coin)
+            coinVM.oldBuyPrice = self.oldCoinVMs[coinVM.baseString]?.buyPriceString
+            coinVM.oldSellPrice = self.oldCoinVMs[coinVM.baseString]?.sellPriceString
+            return coinVM
+        })
+        
+        self.oldCoinVMs.removeAll()
+        
+        self.coinVMs.forEach { item in
+            self.oldCoinVMs[item.baseString] = item
+        }
+        
         if self.searchKeyWord.isEmpty {
             self.filteredVMs = self.coinVMs
         }else {

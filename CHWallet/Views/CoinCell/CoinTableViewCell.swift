@@ -12,8 +12,13 @@ class CoinTableViewCell: UITableViewCell {
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var baseLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var sellPriceLabel: UILabel!
-    @IBOutlet private weak var buyPriceLabel: UILabel!
+    @IBOutlet private weak var sellPriceLabel: PriceUpdateLabel!
+    @IBOutlet private weak var buyPriceLabel: PriceUpdateLabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +34,14 @@ class CoinTableViewCell: UITableViewCell {
                                        placeholder: UIImage(systemName: "circle"))
         } else {
             iconImageView.image = UIImage(systemName: "circle")
+        }
+        
+        if let old = viewModel.oldSellPrice, old != viewModel.sellPriceString {
+            sellPriceLabel.update(from: old, to: viewModel.sellPriceString)
+        }
+        
+        if let old = viewModel.oldBuyPrice, old != viewModel.buyPriceString {
+            buyPriceLabel.update(from: old, to: viewModel.buyPriceString)
         }
     }
 }
