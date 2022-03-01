@@ -6,6 +6,7 @@ target 'CHWallet' do
   use_frameworks!
 
   # Pods for CHWallet
+  pod 'Alamofire', '~> 5.5'
 
   target 'CHWalletTests' do
     inherit! :search_paths
